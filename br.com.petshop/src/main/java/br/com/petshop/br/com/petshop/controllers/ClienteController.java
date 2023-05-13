@@ -14,8 +14,14 @@ public class ClienteController {
     @Autowired
     ClienteRepository clienteRepository;
 
-    @RequestMapping(method = {RequestMethod.POST, RequestMethod.PUT})
+    @PostMapping
     public Cliente novoCliente(Cliente cliente){
+        clienteRepository.save(cliente);
+        return cliente;
+    }
+
+    @PutMapping
+    public Cliente alteraCliente(Cliente cliente){
         clienteRepository.save(cliente);
         return cliente;
     }

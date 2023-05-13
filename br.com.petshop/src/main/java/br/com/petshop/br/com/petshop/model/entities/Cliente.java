@@ -3,6 +3,7 @@ package br.com.petshop.br.com.petshop.model.entities;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Entity
 @Table(name = "clientes")
@@ -22,15 +23,28 @@ public class Cliente {
     @NotBlank
     private String dataNascimento;
 
+    @OneToMany
+    private List<Animal> meusAnimais;
+
+
     public Cliente() {
     }
 
-    public Cliente(String nome, String cpf, String email, String telefone, String dataNascimento) {
+    public Cliente(@NotBlank String nome, @NotBlank String cpf, @NotBlank String email,
+                   @NotBlank String telefone, @NotBlank String dataNascimento ){
         this.nome = nome;
         this.cpf = cpf;
         this.email = email;
         this.telefone = telefone;
         this.dataNascimento = dataNascimento;
+    }
+
+    public List<Animal> getMeusAnimais() {
+        return meusAnimais;
+    }
+
+    public void setMeusAnimais(List<Animal> meusAnimais) {
+        this.meusAnimais = meusAnimais;
     }
 
     public int getId() {

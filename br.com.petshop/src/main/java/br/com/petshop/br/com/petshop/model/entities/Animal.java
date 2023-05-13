@@ -23,7 +23,8 @@ public class Animal {
     public Animal() {
     }
 
-    public Animal(String nome, String sexo, String raca, String especie, String dataNascimento) {
+
+    public Animal(@NotBlank String nome, @NotBlank String sexo, @NotBlank String raca, @NotBlank String especie, @NotBlank String dataNascimento) {
         this.nome = nome;
         this.sexo = sexo;
         this.raca = raca;
